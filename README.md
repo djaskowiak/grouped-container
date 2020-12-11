@@ -125,13 +125,11 @@ As soon as you turn this function on you have multiple options to define your ba
 
 ## Custom Object CSS <a name="appearanceCSS"></a>
 
-You can define "**Custom object CSS**". his gives you the possibility to write CSS for the whole object and sheet. If you like to write specific CSS for just your created object it is possible to use the CSS selector "&". It will be replaced by "**div[tid="objID"]**" to define code that effects just a single object.
+You can define "**Custom object CSS**". This gives you the possibility to write CSS for the whole object and/or sheet. If you like to write specific CSS for just your created object it is possible to use the CSS selector **"&"**. It will be replaced by "**div[tid="objID"]**" to define code that effects just a single object.
 
 | Menu |  Object |
 :-------------------------:|:-------------------------:
-![](https://github.com/djaskowiak/data/blob/master/grouped-container-cssExample.png)  |  ![](https://github.com/djaskowiak/data/blob/master/grouped-container-css.png) 
-
-In this example I used the following code to set a border with a radius and to overwrite theme CSS setting:
+![](https://github.com/djaskowiak/data/blob/master/grouped-container-css.png)  |  ![](https://github.com/djaskowiak/data/blob/master/grouped-container-cssExample.png) 
 
 > example:
 
@@ -152,10 +150,6 @@ It is also possible to write CSS that effects the sheet or objects on the sheet.
 ```
 .qv-client.qv-card #qv-stage-container .qvt-sheet:not(.qv-custom-size) {
   background-image: linear-gradient(90deg, #E9EBEE 14.4%,  #fff 1%) !important;
-}
-
-& article {
-  border: none !important
 }
 ```
 
