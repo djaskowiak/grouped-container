@@ -75,15 +75,15 @@ If you want to create a grid that holds **2 x 2** items you can use `width = 50%
 With Advanced Configuration you can add more style to the item. For this you have the following possibilities:
 
  * **add CSS Style**: This definition will only apply to the appropriated item. It can be used to add some object opacity or other CSS styles.
-  ```
-  example:
+    ```
+    example:
 
-  border-top: 2px solid #fff (to generate a white border on top as a visual separator)
-  ```
+    border-top: 2px solid #fff (to generate a white border on top as a visual separator)
+    ```
 
  * **add Object Border**: You can also add standard borders by using this function to your item. If this option is **“enabled”** options for **”Border Width”, “Border Color”, “Border Type” and “Border Radius”** will be available.
 
-  Keep in mind, if you have already 100% of width and height distributed to your items you need to calculate it into `width` and `height` (like `calc(50% - 2px)` if you have a border with 1px).
+    Keep in mind, if you have already 100% of width and height distributed to your items you need to calculate it into `width` and `height` (like `calc(50% - 2px)` if you have a border with 1px).
 
  * **Disable default Object Background**: In case you want to hide the default object background of your item you can enable this option. This will be useful when you work with the **”Background”** options under **”Appearance”**.
 
