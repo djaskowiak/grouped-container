@@ -1,4 +1,4 @@
-<img src="https://github.com/djaskowiak/data/blob/master/logo_full%400%2C33x.png" height="100" />
+<p align="center"><img src="https://github.com/djaskowiak/data/blob/master/logo_full%400%2C33x.png" height="100" /></p>
 
 # Grouped Container 
 
