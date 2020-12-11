@@ -1,0 +1,26 @@
+<style id="{{layout.qInfo.qId}}-css">
+  {{layout.prop.customcss.switch == true ? customcss : ''}}
+  {{layout.showTitles == false ? 'div[tid="' + qId + '"] .object-wrapper > .qv-object-wrapper > .qv-object > .qv-inner-object > .qv-object-header {display:none!important;}' : ''}}
+</style>
+<div qv-requirements="" ng-if="init" class="requirements-wrapper">
+    <div class="requirements" style="display: inline-table; padding-bottom: 0px;">
+        <img src="/extensions/grouped_container/grouped.png" style="width: 35%;"></img>
+        <div class="grouped-container-info">
+        <button ng-if="init" class="add-button lui-button" ng-click="showAddMasterItemsDialog($event)" style="background-color: white;">Select Master items</button>
+        <hr><b>Select</b> and <b>add</b> required Master items. All items will be <b>positioned automatically</b>. You can change position and size in the <b>"Configuration-panel"</b>. In Total <b>width and heigth</b> shouldn't exceed 100%. Otherwise the object is <b>unvisible</b>.</div>
+    </div>
+</div>
+<div class="grouped-container-background" ng-if="layout.prop.background.switch == true" ng-style="backgroundcss"></div>
+<div qv-extension class="grouped-container-main" ng-if="(layout.mobile.switch == false || mobileMode == false)" style="{{layout.sytleContainer}}">
+  <div id="{{qId}}{{$index}}" style="
+  width:{{div.width}};
+  height:{{div.height}};
+  border-width:{{div.border.switch == true ? div.border.width : ''}};
+  border-color:{{div.border.switch == true ? div.border.color.color : ''}};
+  border-style:{{div.border.switch == true ? div.border.style : ''}};
+  border-radius:{{div.border.switch == true ? div.border.radius : ''}};
+  {{div.style}}"
+  class="grouped-container-flex-item {{div.background.switch == true ? 'grouped-container-no-bg' : ''}}" ng-repeat="div in layout.alternatives track by $index">
+</div>
+</div>
+</div>

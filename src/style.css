@@ -1,0 +1,151 @@
+.qv-object-LayoutContainer div.qv-object-content-container {
+	overflow: auto;
+}
+.qv-object-LayoutContainer td,
+.qv-object-LayoutContainer th {
+	border-top: 0px solid #fff;
+	border-bottom: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	vertical-align: middle;
+	cursor: default;
+	font-size: 12px;
+}
+.qv-object-LayoutContainer td.numeric {
+	text-align: right;
+}
+.qv-object-LayoutContainer button {
+	width: 100%;
+}
+
+div.container-image {
+    cursor: pointer;
+    display: block;
+    min-height: 100%; 
+    min-width: 100%; 
+    width:100%;
+    height:100%; 
+    background-repeat: no-repeat;  
+    background-size: contain; 
+    postion: relative;
+    box-sizing:border-box;
+    vertical-align: middle;
+    text-align: center;
+    vertical-align: ;
+}
+
+.grouped-container-main {
+  display:flex;
+  flex-wrap: wrap;
+  align-items: center;
+  height: calc(100% - 10px);
+  justify-content: space-between;
+  padding: 5px;
+}
+
+.grouped-container-flex-item {
+	width: calc(50%);
+  height: calc(100%);
+  overflow: hidden;
+  z-index: 2;
+
+	&::after {
+		content: '';
+		padding: 0.5em;
+	  }	
+}
+
+.grouped-container-background{
+  position: absolute;
+  height: calc(100% + 10px);
+  width: calc(100% + 20px);
+  top: 0px;
+  left: -10px;
+}
+
+/* disables box-shadow for scrollbar */
+.grouped-container-main .grouped-container-flex-item .qv-object-wrapper .qv-object .scroll-hint--towards-end {
+  box-shadow: none !important;
+}
+
+/* disable borders & shadows on .qv-object*/
+.grouped-container-main .grouped-container-flex-item .qv-object-wrapper .qv-object {
+  border: 0px !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+/* disable border radius in obj */
+.qv-object-grouped_container .qv-inner-object{
+  border-radius: 0 !important;
+}
+
+.grouped-container-no-bg .qv-object-wrapper .qv-object .qv-inner-object {
+  background-color: rgba(0,0,0,0) !important;
+  background: none !important;
+}
+
+.grouped-container-no-bg .qv-object-wrapper .qv-object {
+  background-color: rgba(0,0,0,0) !important;
+  background: none !important;
+}
+
+.qv-object-grouped_container > .qv-inner-object {
+  padding: 0px !important;
+}
+
+.qv-object-grouped_container > .qv-inner-object > header{
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+
+.qv-object-grouped_container .requirements-wrapper {
+  position: absolute !important;
+}
+
+.qv-object-grouped_container .requirements {
+  text-align: center !important;
+}
+
+.grouped-container-info {
+  padding: 10px;
+  border: 1px solid black;
+  display: inline-block;
+  right: auto; 
+  white-space: unset; 
+  text-overflow: unset;
+  overflow: unset;
+  line-height: normal;
+  margin: 10px;
+  font-size: 0.7rem !important;
+  border-radius: 3px;
+  color: #595959;
+  border: 1px solid #b3b3b3;
+  background-color: rgba(196, 207, 218, 0.1) !important;
+}
+
+.grouped-container-search-container {
+  display: flex;
+  position: static;
+  min-height: 37px;
+  border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.lui-icon.lui-icon--search.grouped-container-search-icon {
+  margin: 10px 5px 10px 7px;
+}
+.lui-input.grouped-container-search {
+  width: 100%;
+  border: none !important;
+}
+
+.lui-input:focus.grouped-container-search {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.grouped-container-search{ 
+  margin: 5px;
+}

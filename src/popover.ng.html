@@ -1,0 +1,26 @@
+/* eslint-disable */
+<lui-popover x-arrow="arrow" class="qsc-dropdown">
+  <lui-popover-body>
+    <div class="grouped-container-search-container">
+			<span class="lui-icon  lui-icon--search grouped-container-search-icon" aria-hidden="false"></span>
+			<input class="lui-input grouped-container-search" ng-model="input.searchTxt" placeholder="Search for Master items"></input>
+    </div>
+    <ul class="lui-list" style="white-space: nowrap;">
+      <li ng-repeat="item in input.items | filter:input.searchTxt" class="lui-list__item  lui-list__action"
+        style="align-items: center; padding-left: 5px;">
+        <label class="lui-checkbox grouped-container-MV-items">
+          <input class="lui-checkbox__input grouped-container-MV-items" ng-click="createArray(item);" type="checkbox" aria-label="Label" />
+          <div class="lui-checkbox__check-wrap" style="text-overflow: ellipsis; overflow: hidden; max-width: 198px;">
+            <span class="lui-checkbox__check"></span>
+            <span class="lui-list__text">{{item.label}}</span>
+          </div>
+        </label>
+      </li>
+    </ul>
+    <button class="lui-button" ng-click="pushConfig(); $event.stopPropagation();"
+      style="margin:2px; display:block; width: calc(100% - 4px); color: #fff; background-color: #009845;">
+      <span class="lui-button__icon  lui-icon  lui-icon--plus" style="position: absolute; left: 11px;"></span>
+      Add Items
+    </button>
+  </lui-popover-body>
+</lui-popover>
