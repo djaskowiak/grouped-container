@@ -121,6 +121,7 @@ As soon as you turn this function on you have multiple options to define your ba
 
  * If you like to use a background picture you can turn **”Switch to picture”** on. After that you can chose the picture from your uploaded pictures in the app. As mentioned through **”CSS Definition”** field you can add CSS to position the picture or to apply more configuration.
 
+<p align="center"><img src="https://github.com/djaskowiak/data/blob/master/grouped-container-background.gif" width="100%" /></p>
 
 ## Custom Object CSS <a name="appearanceCSS"></a>
 
