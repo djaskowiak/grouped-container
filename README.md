@@ -28,6 +28,8 @@ You can [donwload](https://github.com/djaskowiak/grouped-container/raw/main/demo
  - [Appearance](#appearance)
  - [Tipps](#tipps)
  - [Developing the extension](#dev)
+ - [Original authors ](#authors)
+ - [License](#license)
 
 
 # Adding objects to the container <a name="addingobjects"></a>
@@ -65,6 +67,8 @@ If you want to do code changes to the extension follow these simple steps to get
 
 # Original authors <a name="authors"></a>
 [github.com/djaskowiak](https://github.com/djaskowiak)
+
+A special thanks goes to [Riley MacDonald](https://github.com/rileymd88) and [Mihael Radosevic](https://github.com/mihael-dev) for their helpfulness and their creativity!
 
 # License <a name="license"></a>
 Released under the [MIT License](LICENSE).
