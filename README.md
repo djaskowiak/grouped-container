@@ -75,7 +75,7 @@ If you want to create a grid that holds **2 x 2** items you can use `width = 50%
 
 ## Advanced Configuration <a name="itemConfigAdvanced"></a>
 
-With Advanced Configuration you can add more style to the item. For this you have the following possibilities:
+With **Advanced Configuration** you can add more style to the item. For this you have the following possibilities:
 
  * **add CSS Style**: This definition will only apply to the appropriated item. It can be used to add some object opacity or other CSS styles.
     
@@ -124,6 +124,42 @@ As soon as you turn this function on you have multiple options to define your ba
 <p align="center"><img src="https://github.com/djaskowiak/data/blob/master/grouped-container-background.gif" width="100%" /></p>
 
 ## Custom Object CSS <a name="appearanceCSS"></a>
+
+| Menu |  Object |
+:-------------------------:|:-------------------------:
+![](https://github.com/djaskowiak/data/blob/master/grouped-container-cssExample.png)  |  ![](https://github.com/djaskowiak/data/blob/master/grouped-container-css.png)
+
+You can define "**Custom object CSS**". his gives you the possibility to write CSS for the whole object and sheet. If you like to write specific CSS for just your created object it is possible to use the CSS selector "&". It will be replaced by "**div[tid="objID"]**" to define code that effects just a single object. 
+
+In this example I used the following code to set a border with a radius and to overwrite theme CSS setting:
+
+> example:
+
+```
+& { 
+  box-shadow: 5px 5px 5px rgba(200, 200, 200, 0.8);
+  border: none !important;
+}
+```
+> This example will add a shadow to the container.
+
+It is also possible to write CSS that effects the sheet or objects on the sheet.
+
+> example:
+
+<p align="center"><img src="https://github.com/djaskowiak/data/blob/master/grouped-container-cssSheet.png" width="100%" /></p>
+
+```
+.qv-client.qv-card #qv-stage-container .qvt-sheet:not(.qv-custom-size) {
+  background-image: linear-gradient(90deg, #E9EBEE 14.4%,  #fff 1%) !important;
+}
+
+& article {
+  border: none !important
+}
+```
+
+> This example will add a background gradient with a hard cut at 14.4%.
 
 ## Mobile Options <a name="appearanceMobileOptions"></a>
 
