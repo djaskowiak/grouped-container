@@ -12,7 +12,7 @@ Please keep in mind, the files you find within the GitHub Repository are the "**
 
 You can download the extension [here](https://github.com/djaskowiak/grouped-container/releases). Upload to Qlik Sense server or extract to appropriate Qlik Sense Desktop folder.
 
-* Qlik Sense Desktop: unzip to a directory under [My Documents]/Qlik/Sense/Extensions.
+* Qlik Sense Desktop: unzip to a directory under `[My Documents]/Qlik/Sense/Extensions`.
 
 * Qlik Sense Server: import the zip file in the QMC.
 
@@ -24,17 +24,17 @@ You can [donwload](https://github.com/djaskowiak/grouped-container/raw/main/demo
 
 # Adding objects to the container <a name="addingobjects"></a>
 
-Before you start to create the container create Master Items from the objects you like to use. After you have positioned the “Grouped Container” on your canvas the initial dialogue helps you to select the appropriate Master Visualizations. If you have a lot Master Visualizations, you can also search through the list. By ticking the checkbox, you will select the item.
+Before you start to create the container create Master Items from the objects you like to use. After you have positioned the **“Grouped Container”** on your canvas the initial dialogue helps you to select the appropriate Master Visualizations. If you have a lot Master Visualizations, you can also search through the list. By ticking the checkbox, you will select the item.
 
-<p align="left"><img src="https://github.com/djaskowiak/data/blob/master/grouped-container-addingObjects.gif" height="400" /></p>
+<p align="center"><img src="https://github.com/djaskowiak/data/blob/master/grouped-container-addingObjects.gif" height="400" /></p>
 
-When you have finished your selection, you can scroll down and hit “Add Items” to create the items in your container.
+When you have finished your selection, you can scroll down and hit **“Add Items”** to create the items in your container.
 
 The extension will arrange the items automatically to a fixed position depending on the amount of your selected items. We will change these settings later within the configuration.
 
-If you like to get back to the initial configuration screen of the object you just need to remove all items within the property panel under “Configuration”. To do so, right-click on the appropriated item and hit “Delete”. Of course, you can also use the “Add Objects” button to add more items after the initial selection to your container.
+If you like to get back to the initial configuration screen of the object you just need to remove all items within the property panel under **“Configuration”**. To do so, right-click on the appropriated item and hit **“Delete”**. Of course, you can also use the “Add Objects” button to add more items after the initial selection to your container.
 
-<p align="left"><img src="https://github.com/djaskowiak/data/blob/master/grouped-container-changingItems.gif" height="400" /></p>
+<p align="center"><img src="https://github.com/djaskowiak/data/blob/master/grouped-container-changingItems.gif" height="400" /></p>
 
 By dragging and dropping you can change the display order of the configured items.
 
