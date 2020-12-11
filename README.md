@@ -64,7 +64,7 @@ On the first layer of options you can configure `width` and `height` of the item
 
 Please keep in mind if you work with percent values this always relates to the whole **”Grouped Container”**. If your object exceeds the 100% in `width` or `height` it will be displayed in the next row or in the next column. It could also disappear to an invisible area incase it exceeds the container size.
 
-**Example:**
+> **Example:**
 
 If you want to create a grid that holds **2 x 2** items you can use `width = 50%` and `height = 50%`. Incase you like to add borders you need to use `calc(50% - Xpx)` to not exceed the space of the container.
 
