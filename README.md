@@ -31,7 +31,6 @@ You can [donwload](https://github.com/djaskowiak/grouped-container/raw/main/demo
    - [Background](#appearanceBackground)
    - [Custom Object CSS](#appearanceCSS)
    - [Mobile Options](#appearanceMobileOptions)
- - [Tipps](#tipps)
  - [Developing the extension](#dev)
  - [Original authors ](#authors)
  - [License](#license)
@@ -157,7 +156,7 @@ It is also possible to write CSS that effects the sheet or objects on the sheet.
 
 ## Mobile Options <a name="appearanceMobileOptions"></a>
 
-# Tipps <a name="tipps"></a>
+By enabling the option **”Hide on mobile device”** this object will be hidden on mobile phones. As soon as the user device reaches the resolution of a mobile phone, this object will be hidden. If the user switches back to a “normal” device  (like tablet or desktop) the object will be visible again.
 
 # Developing the extension <a name="dev"></a>
 
