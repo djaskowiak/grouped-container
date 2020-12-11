@@ -18,7 +18,7 @@ You can download the extension [here](https://github.com/djaskowiak/grouped-cont
 
 # Demo
 
-[![Advanced KPI Object](https://raw.githubusercontent.com/djaskowiak/data/master/2019-12-05%2010_28_15-Window.png)](https://youtu.be/i2NlWX7plM4)
+<p align="center">[![Grouped Container](https://github.com/djaskowiak/data/blob/master/grouped-container-cssSheet.png)](https://youtu.be/i2NlWX7plM4)</p>
 
 You can [donwload](https://github.com/djaskowiak/grouped-container/raw/main/demo/grouped-container%20examples.qvf) a Qlik Sense Demo app to see a couple of possible examples.
 
