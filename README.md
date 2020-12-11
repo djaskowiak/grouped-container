@@ -25,6 +25,7 @@ You can [donwload](https://github.com/djaskowiak/grouped-container/raw/main/demo
 # Table of contents
  - [Adding objects to the container](#addingobjects)
  - [Item Configuration](#itemConfig)
+   - [Basic](#itemConfigBasic)
  - [Appearance](#appearance)
  - [Tipps](#tipps)
  - [Developing the extension](#dev)
