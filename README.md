@@ -125,11 +125,11 @@ As soon as you turn this function on you have multiple options to define your ba
 
 ## Custom Object CSS <a name="appearanceCSS"></a>
 
+You can define "**Custom object CSS**". his gives you the possibility to write CSS for the whole object and sheet. If you like to write specific CSS for just your created object it is possible to use the CSS selector "&". It will be replaced by "**div[tid="objID"]**" to define code that effects just a single object.
+
 | Menu |  Object |
 :-------------------------:|:-------------------------:
-![](https://github.com/djaskowiak/data/blob/master/grouped-container-cssExample.png)  |  ![](https://github.com/djaskowiak/data/blob/master/grouped-container-css.png)
-
-You can define "**Custom object CSS**". his gives you the possibility to write CSS for the whole object and sheet. If you like to write specific CSS for just your created object it is possible to use the CSS selector "&". It will be replaced by "**div[tid="objID"]**" to define code that effects just a single object. 
+![](https://github.com/djaskowiak/data/blob/master/grouped-container-cssExample.png)  |  ![](https://github.com/djaskowiak/data/blob/master/grouped-container-css.png) 
 
 In this example I used the following code to set a border with a radius and to overwrite theme CSS setting:
 
