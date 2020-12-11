@@ -78,7 +78,7 @@ With Advanced Configuration you can add more style to the item. For this you hav
     ```
     example:
 
-    border-top: 2px solid #fff (to generate a white border on top as a visual separator)
+    border-top: 2px solid #fff **(to generate a white border on top as a visual separator)**
     ```
 
  * **add Object Border**: You can also add standard borders by using this function to your item. If this option is **“enabled”** options for **”Border Width”, “Border Color”, “Border Type” and “Border Radius”** will be available.
@@ -87,7 +87,7 @@ With Advanced Configuration you can add more style to the item. For this you hav
 
  * **Disable default Object Background**: In case you want to hide the default object background of your item you can enable this option. This will be useful when you work with the **”Background”** options under **”Appearance”**.
 
-
+<p align="center"><img src="https://github.com/djaskowiak/data/blob/master/grouped-container-advanced.gif" width="100%" /></p>
 
 # Appearance <a name="appearance"></a>
 
