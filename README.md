@@ -30,7 +30,7 @@ Before you start to create the container create Master Items from the objects yo
 
 When you have finished your selection, you can scroll down and hit **“Add Items”** to create the items in your container.
 
-The extension will arrange the items automatically to a fixed position depending on the amount of your selected items. We will change these settings later within the configuration.
+The extension will arrange the items automatically to a fixed position (width & height) depending on the amount of your selected items. We can change these settings later within the configuration.
 
 If you like to get back to the initial configuration screen of the object you just need to remove all items within the property panel under **“Configuration”**. To do so, right-click on the appropriated item and hit **“Delete”**. Of course, you can also use the “Add Objects” button to add more items after the initial selection to your container.
 
