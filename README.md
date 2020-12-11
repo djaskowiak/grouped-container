@@ -50,6 +50,23 @@ By dragging and dropping you can change the display order of the configured item
 
 # Item Configuration <a name="itemConfig"></a>
 
+## Basic <a name="itemConfigBasic"></a>
+
+On the first layer of options you can configure `width` and `height` of the item. Here you can use:
+
+ * Percent values (like `50%`)
+ * Pixel (like `200px`)
+ * emphemeral unit (like `10rem` & `10em`)
+ * virtual width and virtual height (like `20vw` or `20vh`)
+ * calculate with values (like `calc(100% - 10px)`)
+
+Please keep in mind if you work with percent values this always relates to the whole **”Grouped Container”**. If your object exceeds the 100% in `width` or `height` it will be displayed in the next row or in the next column. It could also disappear to an invisible area incase it exceeds the container size.
+
+**Example:**
+
+If you want to create a grid that holds **2 x 2** items you can use `width = 50%` and `height = 50%`. Incase you like to add borders you need to use `calc(50% - Xpx)` to not exceed the space of the container.
+
+
 # Appearance <a name="appearance"></a>
 
 # Tipps <a name="tipps"></a>
