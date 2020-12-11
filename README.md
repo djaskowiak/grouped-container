@@ -18,7 +18,7 @@ You can download the extension [here](https://github.com/djaskowiak/grouped-cont
 
 # Demo
 
-[![Grouped Container](https://github.com/djaskowiak/data/blob/master/grouped-container-cssSheet.png)](https://youtu.be/i2NlWX7plM4)
+[![Grouped Container](https://github.com/djaskowiak/data/blob/master/grouped-container-video.png)](https://youtu.be/psiBDZiaQV8)
 
 You can [donwload](https://github.com/djaskowiak/grouped-container/raw/main/demo/grouped-container%20examples.qvf) a Qlik Sense Demo app to see a couple of possible examples.
 
