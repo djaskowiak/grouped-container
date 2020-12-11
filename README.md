@@ -22,6 +22,14 @@ You can download the extension [here](https://github.com/djaskowiak/grouped-cont
 
 You can [donwload](https://github.com/djaskowiak/grouped-container/raw/main/demo/grouped-container%20examples.qvf) a Qlik Sense Demo app to see a couple of possible examples.
 
+# Table of contents
+ - [Adding objects to the container](#addingobjects)
+ - [Item Configuration](#itemConfig)
+ - [Appearance](#appearance)
+ - [Tipps](#tipps)
+ - [Developing the extension](#dev)
+
+
 # Adding objects to the container <a name="addingobjects"></a>
 
 Before you start to create the container create Master Items from the objects you like to use. After you have positioned the **“Grouped Container”** on your canvas the initial dialogue helps you to select the appropriate Master Visualizations. If you have a lot Master Visualizations, you can also search through the list. By ticking the checkbox, you will select the item.
@@ -32,11 +40,17 @@ When you have finished your selection, you can scroll down and hit **“Add Item
 
 The extension will arrange the items automatically to a fixed position (width & height) depending on the amount of your selected items. We can change these settings later within the configuration.
 
-If you like to get back to the initial configuration screen of the object you just need to remove all items within the property panel under **“Configuration”**. To do so, right-click on the appropriated item and hit **“Delete”**. Of course, you can also use the “Add Objects” button to add more items after the initial selection to your container.
+If you like to get back to the initial configuration screen of the object you just need to remove all items within the property panel under **“Configuration”**. To do so, right-click on the appropriated item and hit **“Delete”**. Of course, you can also use the **“Add Objects”** button to add more items after the initial selection to your container. New objects will always be placed with `width: 50%` and `height: 50%`.
 
 <p align="center"><img src="https://github.com/djaskowiak/data/blob/master/grouped-container-changingItems.gif" width="100%" /></p>
 
 By dragging and dropping you can change the display order of the configured items.
+
+# Item Configuration <a name="itemConfig"></a>
+
+# Appearance <a name="appearance"></a>
+
+# Tipps <a name="tipps"></a>
 
 # Developing the extension <a name="dev"></a>
 
