@@ -28,6 +28,9 @@ You can [donwload](https://github.com/djaskowiak/grouped-container/raw/main/demo
    - [Basic](#itemConfigBasic)
    - [Advanced Configuration](#itemConfigAdvanced)
  - [Appearance](#appearance)
+   - [Background](#appearanceBackground)
+   - [Custom Object CSS](#appearanceCSS)
+   - [Mobile Options](#appearanceMobileOptions)
  - [Tipps](#tipps)
  - [Developing the extension](#dev)
  - [Original authors ](#authors)
@@ -91,6 +94,37 @@ With Advanced Configuration you can add more style to the item. For this you hav
 <p align="center"><img src="https://github.com/djaskowiak/data/blob/master/grouped-container-advanced.gif" width="100%" /></p>
 
 # Appearance <a name="appearance"></a>
+
+Under **Appearance** und can find a couple of options and functions to change the visual style of the container itself or you can add additional CSS style to change the look of other objects as well (like changing the background of your entire worksheet, but we will cover this later).
+
+## Background <a name="appearanceBackground"></a>
+
+As soon as you turn this function on you have multiple options to define your background of your **Grouped Container** object.
+
+ * First you can choose if you want to use a **Color Picker** to choose the color from or you want to use the **Fomula** mode to define a color using an expression. This could be a good idea if you want to change the color related on a specific expression (like turn the color to red if a defined KPI reaches a threshold).
+
+ * You can also **”Switch to CSS”** mode incase you like to write CSS to define the color. The CSS needs to be written in JSON format.
+
+    > example:
+    ```
+    ='{"background-image": "linear-gradient(to bottom, #13547a, #80d0c7)"}'
+    ```
+    > This example defines a color gradient from top to bottom.
+
+ * This could be also used to change the definition incase a KPI reaches a threshold. In case you have used a background picture you can define the positioning of the picture using this option.
+
+    > example:
+    ```
+    ='{"background-size" : "cover", "background-position" : "center" , "opacity" : "1"}'
+    ```
+    > This example will cover the whole background using the centered image.
+
+ * If you like to use a background picture you can turn **”Switch to picture”** on. After that you can chose the picture from your uploaded pictures in the app. As mentioned through **”CSS Definition”** field you can add CSS to position the picture or to apply more configuration.
+
+
+## Custom Object CSS <a name="appearanceCSS"></a>
+
+## Mobile Options <a name="appearanceMobileOptions"></a>
 
 # Tipps <a name="tipps"></a>
 
