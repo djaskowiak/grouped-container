@@ -2,7 +2,7 @@
 
 # Grouped Container 
 
-This project is about creating a smart KPI object for Qlik Sense that fits to 90% of the needs of the users. From an information design perspective, the KPI object is one of the most important objects when we want to display information. For most of the users it is an indicator providing a variety of information on the first view within a couple of seconds.
+The grouped-container object helps you to structure your Qlik Sense objects (Master items) freely in a container to provide you more visual capabilities. In addition to that you have a variety of options to style the container by using CSS. 
 
 ### Important !
 Please keep in mind, the files you find within the GitHub Repository are the "**uncompiled**" project files. These files can be downloaded to create your own version of "grouped-container". A description can be found here ([Developing the extension](#dev)). Under the ["**Releases**"](https://github.com/djaskowiak/grouped-container/releases) tab you can find the compiled version. This zip package can be imported into Qlik Sense.
@@ -21,6 +21,22 @@ You can download the extension [here](https://github.com/djaskowiak/grouped-cont
 [![Advanced KPI Object](https://raw.githubusercontent.com/djaskowiak/data/master/2019-12-05%2010_28_15-Window.png)](https://youtu.be/i2NlWX7plM4)
 
 You can [donwload](https://github.com/djaskowiak/grouped-container/raw/main/demo/grouped-container%20examples.qvf) a Qlik Sense Demo app to see a couple of possible examples.
+
+# Adding objects to the container <a name="addingobjects"></a>
+
+Before you start to create the container create Master Items from the objects you like to use. After you have positioned the “Grouped Container” on your canvas the initial dialogue helps you to select the appropriate Master Visualizations. If you have a lot Master Visualizations, you can also search through the list. By ticking the checkbox, you will select the item.
+
+<p align="left"><img src="https://github.com/djaskowiak/data/blob/master/grouped-container-addingObjects.gif" height="400" /></p>
+
+When you have finished your selection, you can scroll down and hit “Add Items” to create the items in your container.
+
+The extension will arrange the items automatically to a fixed position depending on the amount of your selected items. We will change these settings later within the configuration.
+
+If you like to get back to the initial configuration screen of the object you just need to remove all items within the property panel under “Configuration”. To do so, right-click on the appropriated item and hit “Delete”. Of course, you can also use the “Add Objects” button to add more items after the initial selection to your container.
+
+<p align="left"><img src="https://github.com/djaskowiak/data/blob/master/grouped-container-changingItems.gif" height="400" /></p>
+
+By dragging and dropping you can change the display order of the configured items.
 
 # Developing the extension <a name="dev"></a>
 
