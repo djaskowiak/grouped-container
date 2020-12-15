@@ -7,7 +7,14 @@ var webpack = require('webpack');
 var pkg = require('./package.json');
 
 var DIST = './dist';
+
+/* true = directy distribute to extension folder in QS, false = just distribute to dist */
+var toQlikFolder = true;
 var VERSION = process.env.VERSION || '1.0.0';
+
+function copyExtFiles() {
+  return gulp.src('./dist/*').pipe(gulp.dest(`${pkg.qlikshare}/StaticContent/Extensions/${pkg.name}`));
+}
 
 gulp.task('qext', function () {
   var qext = {
@@ -74,9 +81,19 @@ gulp.task('webpack-build', done => {
   });
 });
 
-gulp.task('build',
+gulp.task('init build',
   gulp.series('clean', 'webpack-build', 'qext', 'add-assets')
 );
+
+if (toQlikFolder) {
+  gulp.task('build',
+    gulp.series('clean', 'webpack-build', 'qext', 'add-assets', copyExtFiles)
+  );
+} else {
+  gulp.task('build',
+    gulp.series('clean', 'webpack-build', 'qext', 'add-assets')
+  );
+}
 
 gulp.task('zip',
   gulp.series('build', 'zip-build')
