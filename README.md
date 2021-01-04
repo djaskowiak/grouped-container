@@ -158,6 +158,8 @@ It is also possible to write CSS that effects the sheet or objects on the sheet.
 
 By enabling the option **”Hide on mobile device”** this object will be hidden on mobile phones. As soon as the user device reaches the resolution of a mobile phone, this object will be hidden. If the user switches back to a “normal” device  (like tablet or desktop) the object will be visible again.
 
+<p align="center"><img src="https://github.com/djaskowiak/data/blob/master/grouped-container-mobile.png" width="100%" /></p>
+
 # Developing the extension <a name="dev"></a>
 
 If you want to do code changes to the extension follow these simple steps to get going.

@@ -32,13 +32,13 @@ export default ['$scope', '$element', function ($scope, $element) {
       var amountContainer = $element.find('.grouped-container-flex-item');
       if (amountContainer.length == $scope.layout.alternatives.length) {
         for (let i = 0; i < $scope.layout.alternatives.length; i++) {
-          if ($scope.layout.alternatives[i].masterItem.split('_')[0].length > 1 && !$scope.rendered.includes($scope.layout.qInfo.qId + '_' + $scope.layout.alternatives[i].masterItem.split('_')[0] + '_' + i)) {
-            app.getObject($scope.layout.qInfo.qId + i, $scope.layout.alternatives[i].masterItem.split('_')[0]);
+          if ($scope.layout.alternatives[i].masterItem.split('~')[0].length > 1 && !$scope.rendered.includes($scope.layout.qInfo.qId + '~' + $scope.layout.alternatives[i].masterItem.split('~')[0] + '~' + i)) {
+            app.getObject($scope.layout.qInfo.qId + i, $scope.layout.alternatives[i].masterItem.split('~')[0]);
 
-            $scope.renderedTemp.push($scope.layout.qInfo.qId + '_' + $scope.layout.alternatives[i].masterItem.split('_')[0] + '_' + i);
+            $scope.renderedTemp.push($scope.layout.qInfo.qId + '~' + $scope.layout.alternatives[i].masterItem.split('~')[0] + '~' + i);
           } else {
-            if (!$scope.layout.alternatives[i].masterItem.split('_')[0] == '') {
-              $scope.renderedTemp.push($scope.layout.qInfo.qId + '_' + $scope.layout.alternatives[i].masterItem.split('_')[0] + '_' + i);
+            if (!$scope.layout.alternatives[i].masterItem.split('~')[0] == '') {
+              $scope.renderedTemp.push($scope.layout.qInfo.qId + '~' + $scope.layout.alternatives[i].masterItem.split('~')[0] + '~' + i);
             }
           }
           clearInterval(thisInt);

@@ -16,7 +16,7 @@ define(["qlik"], function (qlik) {
           });
           return resolve(supportedMasterItems.map(function (item) {
             return {
-              value: item.qInfo.qId + '_' + item.qMeta.title,
+              value: item.qInfo.qId + '~' + item.qMeta.title,
               label: item.qMeta.title,
               visualization: item.qData.visualization
             };

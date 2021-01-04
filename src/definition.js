@@ -14,7 +14,7 @@ define(['./utils'], function (utils) {
             ref: 'alternatives',
             label: 'Objects',
             itemTitleRef: function (masterItem) {
-              return masterItem.masterItem.split('_')[1];
+              return masterItem.masterItem.split('~')[1];
             },
             allowAdd: true,
             allowRemove: true,
@@ -365,7 +365,7 @@ define(['./utils'], function (utils) {
         component: 'text',
       },
       paragraph3: {
-        label: 'Version: 1.0.0',
+        label: 'Version: 1.0.1',
         component: 'text'
       }
     }
