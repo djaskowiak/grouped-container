@@ -17,7 +17,7 @@ export default {
     exportData: false
   },
   paint: function ($element, layout) {
-    const app = qlik.currApp(this);
+    /* const app = qlik.currApp(this); */
     const $scope = this.$scope;
     this.$scope.isInEdit = this.options.interactionState == 2;
     $scope.mobileMode = this.options.layoutMode == 7;

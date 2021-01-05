@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 define(['./utils'], function (utils) {
   var config = {
     type: "items",

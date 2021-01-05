@@ -2,7 +2,6 @@ define(["qlik"], function (qlik) {
   return {
 
     getMasterObjectList: function () {
-      var self = this;
       var app = qlik.currApp(this);
       return new Promise(function (resolve, reject) {
         app.getList('masterobject').then(function (model) {

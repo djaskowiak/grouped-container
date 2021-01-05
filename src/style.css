@@ -29,11 +29,11 @@ div.container-image {
     height:100%; 
     background-repeat: no-repeat;  
     background-size: contain; 
-    postion: relative;
+    /* position: relative; */
     box-sizing:border-box;
-    vertical-align: middle;
+    /* vertical-align: middle; */
     text-align: center;
-    vertical-align: ;
+    /* vertical-align: ; */
 }
 
 .grouped-container-main {
@@ -50,11 +50,6 @@ div.container-image {
   height: calc(100%);
   overflow: hidden;
   z-index: 2;
-
-	&::after {
-		content: '';
-		padding: 0.5em;
-	  }	
 }
 
 .grouped-container-background{

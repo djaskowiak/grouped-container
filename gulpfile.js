@@ -39,6 +39,8 @@ gulp.task('qext', function () {
   var src = require('stream').Readable({
     objectMode: true
   });
+  
+  // eslint-disable-next-line no-underscore-dangle
   src._read = function () {
     this.push(new gutil.File({
       cwd: '',

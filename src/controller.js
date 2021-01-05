@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 var qlik = window.require('qlik');
 import utils from './utils.js';
 import popoverTemplate from './popover.ng.html';
@@ -61,6 +62,7 @@ export default ['$scope', '$element', function ($scope, $element) {
         }
       }
     } catch (err) {
+      // eslint-disable-next-line no-console
       console.log(err);
     }
   }, true);
@@ -90,6 +92,7 @@ export default ['$scope', '$element', function ($scope, $element) {
         }
       }
     } catch (err) {
+      // eslint-disable-next-line no-console
       console.log(err);
     }
   }, true);
@@ -127,8 +130,10 @@ export default ['$scope', '$element', function ($scope, $element) {
       }
     });
     $scope.masterItemPopover.closed.then(function () {
+      // eslint-disable-next-line no-undef
       $(window).off('resize.popover', $scope.onMasterItemPopoverResize);
     });
+    // eslint-disable-next-line no-undef
     $(window).on('resize.popover', $scope.onMasterItemPopoverResize);
   };
 
