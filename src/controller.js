@@ -28,22 +28,24 @@ export default ['$scope', '$element', function ($scope, $element) {
 
   /* render charts in divs function */
   $scope.createLayout = function () {
-    var thisInt = setInterval(myInt, 1000);
+    console.log('getLayout()');
+    var thisInt = setInterval(myInt, 100);
     function myInt() {
       var amountContainer = $element.find('.grouped-container-flex-item');
       if (amountContainer.length == $scope.layout.alternatives.length) {
-        for (let i = 0; i < $scope.layout.alternatives.length; i++) {
-          if ($scope.layout.alternatives[i].masterItem.split('~')[0].length > 1 && !$scope.rendered.includes($scope.layout.qInfo.qId + '~' + $scope.layout.alternatives[i].masterItem.split('~')[0] + '~' + i)) {
-            app.getObject($scope.layout.qInfo.qId + i, $scope.layout.alternatives[i].masterItem.split('~')[0]);
-
-            $scope.renderedTemp.push($scope.layout.qInfo.qId + '~' + $scope.layout.alternatives[i].masterItem.split('~')[0] + '~' + i);
+        $scope.layout.alternatives.forEach((element, i) => {
+          if (element.masterItem.split('~')[0].length > 1 && !$scope.rendered.includes($scope.layout.qInfo.qId + '~' + element.masterItem.split('~')[0] + '~' + i)) {
+            app.visualization.get(element.masterItem.split('~')[0]).then((visObj) => {
+              visObj.show($scope.layout.qInfo.qId + i);
+            });
           } else {
-            if (!$scope.layout.alternatives[i].masterItem.split('~')[0] == '') {
-              $scope.renderedTemp.push($scope.layout.qInfo.qId + '~' + $scope.layout.alternatives[i].masterItem.split('~')[0] + '~' + i);
+            if (!element.masterItem.split('~')[0] == '') {
+              $scope.renderedTemp.push($scope.layout.qInfo.qId + '~' + element.masterItem.split('~')[0] + '~' + i);
             }
           }
           clearInterval(thisInt);
-        }
+        });
+
         /* set rendered to last interval rendered items */
         $scope.rendered = $scope.renderedTemp;
         $scope.renderedTemp = [];
