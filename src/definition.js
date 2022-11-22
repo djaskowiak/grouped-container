@@ -182,6 +182,20 @@ define(['./utils'], function (utils) {
     }
   };
 
+  var dimensions = {
+    uses: "dimensions",
+    min: 0,
+    max: 20,
+    show: false
+  };
+
+  var measures = {
+    uses: "measures",
+    min: 0,
+    max: 20,
+    show: false
+  };
+
   var objectMobileSwitch = {
     type: 'boolean',
     ref: 'mobile.switch',
@@ -381,7 +395,7 @@ define(['./utils'], function (utils) {
             defaultValue: false
           },
           details: {
-            show: false
+            show: true
           },
         }
       },
@@ -457,6 +471,8 @@ define(['./utils'], function (utils) {
     type: "items",
     component: "accordion",
     items: {
+      dimensions: dimensions,
+      measures: measures,
       config: config,
       appearance: appearance,
       addons: addons,
