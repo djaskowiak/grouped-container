@@ -1,6 +1,6 @@
 {
   "name": "grouped_container",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "This extension will help you to group Qlik objects within a visual container.",
   "homepage": "",
   "repository": "",
@@ -8,8 +8,8 @@
   "license": "MIT",
   "qlikshare": "C://Qlik//QlikShare",
   "scripts": {
-    "build": "gulp build",
-    "build:zip": "gulp zip",
+    "build": "gulp --openssl-legacy-provider build",
+    "build:zip": "gulp --openssl-legacy-provider zip",
     "eslint": "eslint src"
   },
   "keywords": [],

@@ -23,93 +23,70 @@ export default ['$scope', '$element', function ($scope, $element) {
 
   /*scope for changes in model */
   $scope.$watchCollection("layout.alternatives", function () {
+    console.log($scope.layout);
     $scope.createLayout();
     $scope.setDetails();
   });
 
   /* set details for show details dialog */
   $scope.setDetails = async function () {
-    try {
-      var patches = [];
-      var dimCounter = 0;
-      var mesCounter = 0;
-      const container = await enigma.app.getObject($scope.layout.qInfo.qId);
-      const cleanUp = [
-        {
-          "qPath": "/qHyperCubeDef/qDimensions",
-          "qOp": "remove"
-        }, {
-          "qPath": "/qHyperCubeDef/qMeasures",
-          "qOp": "remove"
-        }
-      ];
+    /* no qExtendsId = no masterObject */
+    if ($scope.layout.qExtendsId == undefined) {
+      try {
+        var patches = [];
+        var dimCounter = 0;
+        var mesCounter = 0;
+        const container = await enigma.app.getObject($scope.layout.qInfo.qId);
+        const cleanUp = [
+          {
+            "qPath": "/qHyperCubeDef/qDimensions",
+            "qOp": "remove"
+          }, {
+            "qPath": "/qHyperCubeDef/qMeasures",
+            "qOp": "remove"
+          }
+        ];
 
-      /* if isInEdit = false than softpatch else hardpatch */
-      await container.applyPatches(cleanUp, !$scope.isInEdit);
+        /* if isInEdit = false than softpatch else hardpatch */
+        await container.applyPatches(cleanUp, !$scope.isInEdit);
 
-      /* Dimensions */
-      for (let i = 0; i < $scope.layout.alternatives.length; i++) {
-        const obj = await enigma.app.getObject($scope.layout.alternatives[i].masterItem.split('~')[0]);
-        const props = await obj.getProperties();
-        for (let d = 0; d < props.qHyperCubeDef.qDimensions.length; d++) {
-          const patch = {
-            "qPath": "/qHyperCubeDef/qDimensions/" + dimCounter,
-            "qOp": "add",
-            "qValue": JSON.stringify(props.qHyperCubeDef.qDimensions[d])
-          };
-          patches.push(patch);
-          dimCounter += 1;
+        /* Dimensions */
+        for (let i = 0; i < $scope.layout.alternatives.length; i++) {
+          const obj = await enigma.app.getObject($scope.layout.alternatives[i].masterItem.split('~')[0]);
+          const props = await obj.getProperties();
+          for (let d = 0; d < props.qHyperCubeDef.qDimensions.length; d++) {
+            const patch = {
+              "qPath": "/qHyperCubeDef/qDimensions/" + dimCounter,
+              "qOp": "add",
+              "qValue": JSON.stringify(props.qHyperCubeDef.qDimensions[d])
+            };
+            patches.push(patch);
+            dimCounter += 1;
+          }
         }
+
+        /* Measures */
+        for (let i = 0; i < $scope.layout.alternatives.length; i++) {
+          const obj = await enigma.app.getObject($scope.layout.alternatives[i].masterItem.split('~')[0]);
+          const props = await obj.getProperties();
+          for (let d = 0; d < props.qHyperCubeDef.qMeasures.length; d++) {
+            const patch = {
+              "qPath": "/qHyperCubeDef/qMeasures/" + mesCounter,
+              "qOp": "add",
+              "qValue": JSON.stringify(props.qHyperCubeDef.qMeasures[d])
+            };
+            patches.push(patch);
+            mesCounter += 1;
+          }
+        }
+
+        /* if isInEdit = false than softpatch else hardpatch */
+        container.applyPatches(patches, !$scope.isInEdit);
+      } catch (error) {
+        console.log(error);
       }
-
-      /* Measures */
-      for (let i = 0; i < $scope.layout.alternatives.length; i++) {
-        const obj = await enigma.app.getObject($scope.layout.alternatives[i].masterItem.split('~')[0]);
-        const props = await obj.getProperties();
-        for (let d = 0; d < props.qHyperCubeDef.qMeasures.length; d++) {
-          const patch = {
-            "qPath": "/qHyperCubeDef/qMeasures/" + mesCounter,
-            "qOp": "add",
-            "qValue": JSON.stringify(props.qHyperCubeDef.qMeasures[d])
-          };
-          patches.push(patch);
-          mesCounter += 1;
-        }
-      }
-
-      /* if isInEdit = false than softpatch else hardpatch */
-      container.applyPatches(patches, !$scope.isInEdit);
-    } catch (error) {
-      console.log(error);
     }
   };
-
-
-
-  /*
-    $scope.setDetails = async function() {
-      var patches = [];
-      var dimCounter = 0;
-      var mesCounter = 0;
-      for (let ii = 0; $scope.layout.alternatives.length; ii++) {
-        const obj = await enigma.getObject($scope.layout.alternatives[ii].masterItem.split('~')[0]);
-        const props = await obj.getProperties();
-        for (let i = 0; props.qHypercubeDef.qDimensions.length; i++) {
-          const patch = {
-            "qPath":"/qHypercubeDef/qDimensions/" + dimCounter,
-            "qOp": "add",
-            "qValue": JSON.stringify(props.qHypercubeDef.qDimensions[])
-          }
-          patches.push()
-          props.qHypercubeDef.qDimensions[]
-        }
-        
-  
-      }
-  
-    };
-
-    */
 
   /* render charts in divs function */
   $scope.createLayout = function () {

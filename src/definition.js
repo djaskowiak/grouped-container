@@ -380,7 +380,7 @@ define(['./utils'], function (utils) {
         component: 'text',
       },
       paragraph3: {
-        label: 'Version: 1.0.1',
+        label: 'Version: 1.0.4',
         component: 'text'
       }
     }
