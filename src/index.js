@@ -23,7 +23,7 @@ export default {
     //Display welcome message
     $scope.init = false;
 
-    if(layout.mobile.switch && $scope.mobileMode) {
+    if (layout.mobile.switch && $scope.mobileMode) {
       $(`div[tid= "${layout.qInfo.qId}"]`).hide();
     } else {
       $(`div[tid= "${layout.qInfo.qId}"]`).show();

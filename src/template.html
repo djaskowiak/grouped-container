@@ -4,7 +4,7 @@
 </style>
 <div qv-requirements="" ng-if="init" class="requirements-wrapper">
     <div class="requirements" style="display: inline-table; padding-bottom: 0px;">
-        <img src="/extensions/grouped_container/grouped.png" style="width: 35%;"></img>
+        <img src="{{layout.extensionMeta.previewIconURL}}" style="width: 35%;"></img>
         <div class="grouped-container-info">
         <button ng-if="init" class="add-button lui-button" ng-click="showAddMasterItemsDialog($event)" style="background-color: white;">Select Master items</button>
         <hr><b>Select</b> and <b>add</b> required Master items. All items will be <b>positioned automatically</b>. You can change position and size in the <b>"Configuration-panel"</b>. In Total <b>width and heigth</b> shouldn't exceed 100%. Otherwise the object is <b>unvisible</b>.</div>

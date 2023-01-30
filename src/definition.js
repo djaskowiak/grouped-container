@@ -308,9 +308,10 @@ define(['./utils'], function (utils) {
   var backgroundpicture = {
     label: "Picture",
     component: "media",
-    ref: "prop.background.picture",
+    ref: "prop.background.picture.qStaticContentUrlDef.qUrl",
+    defaultValue: "",
     type: "string",
-    layoutRef: "prop.background.picture",
+    layoutRef: "prop.background.picture.qStaticContentUrl.qUrl",
     show: function (data) {
       if (data.prop.background.pictureswitch && data.prop.background.cssswitch) { return true; }
     }

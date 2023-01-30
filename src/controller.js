@@ -8,13 +8,7 @@ export default ['$scope', '$element', function ($scope, $element) {
   var app = qlik.currApp($scope);
   let id = app.id;
   var enigma = $scope.component.model.enigmaModel;
-  let pictureUrl = $scope.layout.prop.background.picture;
-  if (!pictureUrl.includes(id) && !pictureUrl.includes('/content/')) {
-    let split = pictureUrl.split('/');
-    split[2] = id;
-    split = split.join('/');
-    $scope.layout.prop.background.picture = split;
-  }
+
   /* Save already rendered items */
   $scope.rendered = [];
 
@@ -23,7 +17,6 @@ export default ['$scope', '$element', function ($scope, $element) {
 
   /*scope for changes in model */
   $scope.$watchCollection("layout.alternatives", function () {
-    console.log($scope.layout);
     $scope.createLayout();
     $scope.setDetails();
   });
@@ -88,6 +81,30 @@ export default ['$scope', '$element', function ($scope, $element) {
     }
   };
 
+
+  async function migrateProps() {
+    const obj = await enigma.app.getObject($scope.layout.qInfo.qId);
+    const props = await obj.getProperties();
+    if (props.qExtendsId == '') {
+      if (props.prop.background.picture.qStaticContentUrlDef == undefined) {
+        try {
+          console.log('removing old props', props);
+          const patch = [
+            {
+              "qPath": "/prop/background/picture",
+              "qOp": "remove"
+            }
+          ];
+          await obj.applyPatches(patch, false);
+        } catch (error) {
+          console.log(error);
+        }
+      }
+    }
+  }
+
+  migrateProps();
+
   /* render charts in divs function */
   $scope.createLayout = function () {
     var thisInt = setInterval(myInt, 100);
@@ -139,9 +156,9 @@ export default ['$scope', '$element', function ($scope, $element) {
         }
         if ($scope.layout.prop.background.pictureswitch) {
           if ($scope.layout.prop.background.css == '') {
-            $scope.backgroundcss = JSON.parse('{"background-image" : "url(' + $scope.layout.prop.background.picture + ')"}');
+            $scope.backgroundcss = JSON.parse('{"background-image" : "url(' + $scope.layout.prop.background.picture.qStaticContentUrl.qUrl + ')"}');
           } else {
-            $scope.backgroundcss["background-image"] = 'url(' + $scope.layout.prop.background.picture + ')';
+            $scope.backgroundcss["background-image"] = 'url(' + $scope.layout.prop.background.picture.qStaticContentUrl.qUrl + ')';
           }
         }
       } else {
@@ -199,7 +216,6 @@ export default ['$scope', '$element', function ($scope, $element) {
     // eslint-disable-next-line no-undef
     $(window).on('resize.popover', $scope.onMasterItemPopoverResize);
   };
-
 
   /* apply selected items */
   $scope.onMasterVizSelected = function (masterViz, i) {

@@ -8,7 +8,7 @@ define(["qlik"], function (qlik) {
           app.destroySessionObject(model.layout.qInfo.qId);
           let supportedMasterItems = model.layout.qAppObjectList.qItems;
           if (!supportedMasterItems || supportedMasterItems.length === 0) {
-            return resolve([{ value: '', label: 'No MasterObjects', visualization: '' }]);
+            return resolve([{ value: '', label: 'No Master Items', visualization: '' }]);
           }
           supportedMasterItems.sort(function (item1, item2) {
             return item1.qMeta.title < item2.qMeta.title ? -1 : 1;
@@ -23,5 +23,7 @@ define(["qlik"], function (qlik) {
         });
       });
     }
+
+    
   };
 });
