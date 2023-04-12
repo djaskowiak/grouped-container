@@ -18,6 +18,7 @@ export default {
   },
   paint: function ($element, layout) {
     const $scope = this.$scope;
+    this.$scope.canSaveSoftProperties = this.options.canSaveSoftProperties;
     this.$scope.isInEdit = this.options.interactionState == 2;
     $scope.mobileMode = this.options.layoutMode == 7;
     //Display welcome message

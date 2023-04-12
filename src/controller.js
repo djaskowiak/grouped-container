@@ -18,13 +18,19 @@ export default ['$scope', '$element', function ($scope, $element) {
   /*scope for changes in model */
   $scope.$watchCollection("layout.alternatives", function () {
     $scope.createLayout();
+    if ($scope.layout.showDetails) {
+      $scope.setDetails();
+    }
+  });
+
+  $scope.$watchCollection("layout.showDetails", function () {
     $scope.setDetails();
   });
 
   /* set details for show details dialog */
   $scope.setDetails = async function () {
     /* no qExtendsId = no masterObject */
-    if ($scope.layout.qExtendsId == undefined) {
+    if ($scope.layout.qExtendsId == undefined && $scope.canSaveSoftProperties) {
       try {
         var patches = [];
         var dimCounter = 0;
@@ -40,8 +46,7 @@ export default ['$scope', '$element', function ($scope, $element) {
           }
         ];
 
-        /* if isInEdit = false than softpatch else hardpatch */
-        await container.applyPatches(cleanUp, !$scope.isInEdit);
+        await container.applyPatches(cleanUp);
 
         /* Dimensions */
         for (let i = 0; i < $scope.layout.alternatives.length; i++) {
@@ -72,21 +77,34 @@ export default ['$scope', '$element', function ($scope, $element) {
             mesCounter += 1;
           }
         }
-
-        /* if isInEdit = false than softpatch else hardpatch */
-        container.applyPatches(patches, !$scope.isInEdit);
+        container.applyPatches(patches);
       } catch (error) {
         console.log(error);
       }
     }
   };
 
+  function getProperty(obj, prop) {
+    var parts = prop.split('.');
+    if (Array.isArray(parts)) {
+      var last = parts.pop(), l = parts.length, i = 1, current = parts[0];
+      while ((obj = obj[current]) && i < l) { current = parts[i]; i++; }
+      if (obj) {
+        return obj[last];
+      }
+    }
+    else {
+      throw 'parts is not valid array';
+    }
+  }
 
   async function migrateProps() {
     const obj = await enigma.app.getObject($scope.layout.qInfo.qId);
     const props = await obj.getProperties();
     if (props.qExtendsId == '') {
-      if (props.prop.background.picture.qStaticContentUrlDef == undefined) {
+      var contentUrl = getProperty(props, 'prop.background.picture.qStaticContentUrlDef');
+      var pictureProp = getProperty(props, 'prop.background.picture');
+      if (contentUrl == undefined && pictureProp !== undefined && $scope.canSaveSoftProperties) {
         try {
           console.log('removing old props', props);
           const patch = [
@@ -103,77 +121,87 @@ export default ['$scope', '$element', function ($scope, $element) {
     }
   }
 
-  migrateProps();
+  $scope.$watchCollection("canSaveSoftProperties", function () {
+    migrateProps();
+  });
 
   /* render charts in divs function */
   $scope.createLayout = function () {
-    var thisInt = setInterval(myInt, 100);
-    function myInt() {
-      var amountContainer = $element.find('.grouped-container-flex-item');
-      if (amountContainer.length == $scope.layout.alternatives.length) {
-        $scope.layout.alternatives.forEach((element, i) => {
-          if (element.masterItem.split('~')[0].length > 1 && !$scope.rendered.includes($scope.layout.qInfo.qId + '~' + element.masterItem.split('~')[0] + '~' + i)) {
-            app.visualization.get(element.masterItem.split('~')[0]).then((visObj) => {
-              visObj.show($scope.layout.qInfo.qId + i);
-            });
-          } else {
-            if (!element.masterItem.split('~')[0] == '') {
-              $scope.renderedTemp.push($scope.layout.qInfo.qId + '~' + element.masterItem.split('~')[0] + '~' + i);
+    /*eslint-disable */
+    if ($scope.layout.visualization === "grouped_container") {
+      var thisInt = setInterval(myInt, 100);
+      function myInt() {
+        /*eslint-enable */
+        var amountContainer = $element.find('.grouped-container-flex-item');
+        if (amountContainer.length == $scope.layout.alternatives.length) {
+          $scope.layout.alternatives.forEach((element, i) => {
+            if (element.masterItem.split('~')[0].length > 1 && !$scope.rendered.includes($scope.layout.qInfo.qId + '~' + element.masterItem.split('~')[0] + '~' + i)) {
+              app.visualization.get(element.masterItem.split('~')[0]).then((visObj) => {
+                visObj.show($scope.layout.qInfo.qId + i);
+              });
+            } else {
+              if (!element.masterItem.split('~')[0] == '') {
+                $scope.renderedTemp.push($scope.layout.qInfo.qId + '~' + element.masterItem.split('~')[0] + '~' + i);
+              }
             }
-          }
-          clearInterval(thisInt);
-        });
+            clearInterval(thisInt);
+          });
 
-        /* set rendered to last interval rendered items */
-        $scope.rendered = $scope.renderedTemp;
-        $scope.renderedTemp = [];
-        clearInterval(thisInt);
-        qlik.resize();
+          /* set rendered to last interval rendered items */
+          $scope.rendered = $scope.renderedTemp;
+          $scope.renderedTemp = [];
+          clearInterval(thisInt);
+          qlik.resize();
+        }
       }
     }
   };
 
   //Scope CSS definition customCSS
   $scope.$watch('[layout.prop.customcss]', function () {
-    try {
-      if ($scope.layout.prop.customcss.switch) {
-        if ($scope.layout.prop.customcss.css != '') {
-          $scope.customcss = $scope.layout.prop.customcss.css.replace(/&/g, "div[tid='" + $scope.layout.qInfo.qId + "']");
+    if ($scope.layout.visualization === "grouped_container") {
+      try {
+        if ($scope.layout.prop.customcss.switch) {
+          if ($scope.layout.prop.customcss.css != '') {
+            $scope.customcss = $scope.layout.prop.customcss.css.replace(/&/g, "div[tid='" + $scope.layout.qInfo.qId + "']");
+          }
         }
+      } catch (err) {
+        // eslint-disable-next-line no-console
+        console.log(err);
       }
-    } catch (err) {
-      // eslint-disable-next-line no-console
-      console.log(err);
     }
   }, true);
 
   //Scope CSS definition for background
   $scope.$watch('[layout.prop.background]', function () {
-    try {
-      if ($scope.layout.prop.background.cssswitch) {
-        if ($scope.layout.prop.background.css != '') {
-          $scope.backgroundcss = JSON.parse($scope.layout.prop.background.css);
-        }
-        if ($scope.layout.prop.background.pictureswitch) {
-          if ($scope.layout.prop.background.css == '') {
-            $scope.backgroundcss = JSON.parse('{"background-image" : "url(' + $scope.layout.prop.background.picture.qStaticContentUrl.qUrl + ')"}');
-          } else {
-            $scope.backgroundcss["background-image"] = 'url(' + $scope.layout.prop.background.picture.qStaticContentUrl.qUrl + ')';
+    if ($scope.layout.visualization === "grouped_container") {
+      try {
+        if ($scope.layout.prop.background.cssswitch) {
+          if ($scope.layout.prop.background.css != '') {
+            $scope.backgroundcss = JSON.parse($scope.layout.prop.background.css);
+          }
+          if ($scope.layout.prop.background.pictureswitch) {
+            if ($scope.layout.prop.background.css == '') {
+              $scope.backgroundcss = JSON.parse('{"background-image" : "url(' + $scope.layout.prop.background.picture.qStaticContentUrl.qUrl + ')"}');
+            } else {
+              $scope.backgroundcss["background-image"] = 'url(' + $scope.layout.prop.background.picture.qStaticContentUrl.qUrl + ')';
+            }
+          }
+        } else {
+          if ($scope.layout.prop.background.switchfxpick) {
+            $scope.backgroundcss = { "background-color": $scope.layout.prop.background.colorfx };
+          }
+          if ($scope.layout.prop.background.switchfxpick == false) {
+            if ($scope.layout.prop.background.color != null) {
+              $scope.backgroundcss = { "background-color": $scope.layout.prop.background.color.color };
+            }
           }
         }
-      } else {
-        if ($scope.layout.prop.background.switchfxpick) {
-          $scope.backgroundcss = { "background-color": $scope.layout.prop.background.colorfx };
-        }
-        if ($scope.layout.prop.background.switchfxpick == false) {
-          if ($scope.layout.prop.background.color != null) {
-            $scope.backgroundcss = { "background-color": $scope.layout.prop.background.color.color };
-          }
-        }
+      } catch (err) {
+        // eslint-disable-next-line no-console
+        console.log(err);
       }
-    } catch (err) {
-      // eslint-disable-next-line no-console
-      console.log(err);
     }
   }, true);
 
